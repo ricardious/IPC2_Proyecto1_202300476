@@ -24,7 +24,7 @@ class CircularLinkedList:
         The new Matrix will be appended to the end of the list and will point to the head of the list,
         making it circular.
         """
-        new_matrix = Matrix(name, n, m)
+        new_matrix = Matrix(name, n, m, data=None)
 
         # Add rows to the new matrix
         for _ in range(n):
@@ -67,3 +67,11 @@ class CircularLinkedList:
             if current == self.head:
                 break
         return None
+
+    def add_row_to_matrix(self, matrix_name):
+        # Agrega una fila a la matriz con el nombre dado
+        matrix = self.find_matrix(matrix_name)
+        if matrix:
+            matrix.add_row()
+        else:
+            print("Matrix not found.")
